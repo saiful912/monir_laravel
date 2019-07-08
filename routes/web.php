@@ -56,3 +56,9 @@ Route::group(['prefix' =>'admin'],function(){
     Route::post('/brand/delete/{id}','Backend\AdminBrandsController@brand_delete')->name('admin.brand.delete');
 });
 
+
+
+
+Auth::routes();
+
+Route::get('/home', 'HomeController@index')->name('home');
