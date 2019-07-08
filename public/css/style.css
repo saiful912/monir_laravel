@@ -1,0 +1,16 @@
+.carousel-control-next-icon{
+    right: 70px;
+    color: #0d4b7a;
+}
+.child{
+    display: flex;
+}
+
+.margin-top{
+    margin-top: 20px;
+}
+footer.footer-bottom {
+    padding: 20px;
+    margin-top: 40px;
+    background: #02aadd;
+}
