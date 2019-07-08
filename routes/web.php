@@ -19,6 +19,9 @@ Route::get('/search','Frontend\HomeController@search')->name('search');
 Route::get('/products','Frontend\ProductsController@index')->name('products');
 Route::get('/product/{slug}','Frontend\ProductsController@show')->name('products.show');
 
+//category route
+Route::get('/products/categories','Frontend\CategoriesController@index')->name('categories.index');
+Route::get('/products/category/{id}','Frontend\CategoriesController@show')->name('categories.show');
 
 
 

@@ -34,7 +34,9 @@ class AdminProductsController extends Controller
             'title' =>'required|max:150',
             'description'=>'required',
             'price' =>'required|numeric',
-            'quantity'=>'required|numeric'
+            'quantity'=>'required|numeric',
+            'category_id'=>'required',
+            'brand_id'=>'required'
         ]);
 
         $product = new Product;
@@ -45,8 +47,8 @@ class AdminProductsController extends Controller
         $product->quantity = $request->quantity;
 
         $product->slug = str_slug($request->title);
-        $product->category_id = 1;
-        $product->brand_id = 1;
+        $product->category_id = $request->category_id;
+        $product->brand_id = $request->brand_id;
         $product->admin_id = 1;
         $product->save();
 
@@ -87,12 +89,16 @@ class AdminProductsController extends Controller
             'title' =>'required|max:150',
             'description'=>'required',
             'price' =>'required|numeric',
-            'quantity'=>'required|numeric'
+            'quantity'=>'required|numeric',
+            'category_id'=>'required',
+            'brand_id'=>'required'
         ]);
 
         $product= Product::find($id);
         $product->title = $request->title;
         $product->description = $request->description;
+        $product->category_id = $request->category_id;
+        $product->brand_id = $request->brand_id;
         $product->price = $request->price;
         $product->quantity = $request->quantity;
         $product->save();

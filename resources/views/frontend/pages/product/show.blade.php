@@ -41,6 +41,10 @@
                    <div class="product-description">
                        {!! $products->description !!}
                    </div>
+                   <div class="brand">
+                       <p>Category <span class="badge badge-info">{{$products->category->name}}</span> </p>
+                       <p>Brand <span class="badge badge-info">{{$products->brand->name}}</span> </p>
+                   </div>
                </div>
            </div>
        </div>
