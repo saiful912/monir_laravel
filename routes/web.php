@@ -54,6 +54,22 @@ Route::group(['prefix' =>'admin'],function(){
     Route::post('/brand/create','Backend\AdminBrandsController@brand_store')->name('admin.brand.store');
     Route::post('/brand/update/{id}','Backend\AdminBrandsController@brand_update')->name('admin.brand.update');
     Route::post('/brand/delete/{id}','Backend\AdminBrandsController@brand_delete')->name('admin.brand.delete');
+
+    //Division route
+    Route::get('/divisions/create','Backend\DivisionController@division_create')->name('admin.divisions.create');
+    Route::get('/divisions','Backend\DivisionController@manage_division')->name('admin.divisions');
+    Route::get('/divisions/edit/{id}','Backend\DivisionController@division_edit')->name('admin.divisions.edit');
+    Route::post('/division/create','Backend\DivisionController@division_store')->name('admin.division.store');
+    Route::post('/division/update/{id}','Backend\DivisionController@division_update')->name('admin.division.update');
+    Route::post('/division/delete/{id}','Backend\DivisionController@division_delete')->name('admin.division.delete');
+
+    //District route
+    Route::get('/districts/create','Backend\DistrictController@district_create')->name('admin.districts.create');
+    Route::get('/districts','Backend\DistrictController@manage_district')->name('admin.districts');
+    Route::get('/districts/edit/{id}','Backend\DistrictController@district_edit')->name('admin.districts.edit');
+    Route::post('/district/create','Backend\DistrictController@district_store')->name('admin.district.store');
+    Route::post('/district/update/{id}','Backend\DistrictController@district_update')->name('admin.district.update');
+    Route::post('/district/delete/{id}','Backend\DistrictController@district_delete')->name('admin.district.delete');
 });
 
 

@@ -39,5 +39,25 @@
                 </ul>
             </div>
         </li>
+
+        <li class="nav-item">
+            <a class="nav-link" data-toggle="collapse" href="#division-pages" aria-expanded="false" aria-controls="brands-pages"> <img class="menu-icon" src="{{asset('images/menu_icons/05.png')}}" alt="menu icon"> <span class="menu-title">Divisions</span><i class="menu-arrow"></i></a>
+            <div class="collapse" id="division-pages">
+                <ul class="nav flex-column sub-menu">
+                    <li class="nav-item"> <a class="nav-link" href="{{route('admin.divisions')}}">Manage Division</a></li>
+                    <li class="nav-item"> <a class="nav-link" href="{{route('admin.divisions.create')}}">Add Division</a></li>
+                </ul>
+            </div>
+        </li>
+
+        <li class="nav-item">
+            <a class="nav-link" data-toggle="collapse" href="#districts-pages" aria-expanded="false" aria-controls="brands-pages"> <img class="menu-icon" src="{{asset('images/menu_icons/05.png')}}" alt="menu icon"> <span class="menu-title">Districts</span><i class="menu-arrow"></i></a>
+            <div class="collapse" id="districts-pages">
+                <ul class="nav flex-column sub-menu">
+                    <li class="nav-item"> <a class="nav-link" href="{{route('admin.districts')}}">Manage District</a></li>
+                    <li class="nav-item"> <a class="nav-link" href="{{route('admin.districts.create')}}">Add District</a></li>
+                </ul>
+            </div>
+        </li>
     </ul>
 </nav>

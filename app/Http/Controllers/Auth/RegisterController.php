@@ -4,6 +4,8 @@ namespace App\Http\Controllers\Auth;
 
 
 use App\Http\Controllers\Controller;
+use App\Models\District;
+use App\Models\Division;
 use Illuminate\Support\Facades\Hash;
 use App\User;
 use Illuminate\Support\Facades\Validator;
@@ -41,32 +43,54 @@ class RegisterController extends Controller
         $this->middleware('guest');
     }
 
+
+//use Illuminate\Foundation\Auth\RegistersUsers in coming this class for foreign key defined register form
+    public function showRegistrationForm()
+    {
+   //foreign key
+        $divisions = Division::orderBy('priority','asc')->get();
+        $districts = District::orderBy('name','asc')->get();
+        return view('auth.register',compact('divisions','districts'));
+    }
+
     /**
      * Get a validator for an incoming registration request.
      *
-     * @param  array  $data
+     * @param  array $data
      * @return \Illuminate\Contracts\Validation\Validator
      */
     protected function validator(array $data)
     {
         return Validator::make($data, [
-            'name' => ['required', 'string', 'max:255'],
-            'email' => ['required', 'string', 'email', 'max:255', 'unique:users'],
-            'password' => ['required', 'string', 'min:8', 'confirmed'],
+            'first_name' => ['required', 'string', 'max:30'],
+            'last_name' => ['nullable', 'string', 'max:30'],
+            'phone_no' => ['required','max:15'],
+            'email' => ['required', 'string', 'email', 'max:128', 'unique:users'],
+            'password' => ['required', 'string', 'min:6', 'confirmed'],
+            'street_address' => ['required','max:128'],
+            'division_id' => ['required','numeric'],
+            'district_id' => ['required','numeric'],
         ]);
     }
 
     /**
      * Create a new user instance after a valid registration.
      *
-     * @param  array  $data
+     * @param  array $data
      * @return \App\Models\User
      */
     protected function create(array $data)
     {
         return User::create([
-            'name' => $data['name'],
+            'first_name' => $data['first_name'],
+            'last_name' => $data['last_name'],
+            'username' =>str_slug($data['first_name'].$data['last_name']),
             'email' => $data['email'],
+            'phone_no' => $data['phone_no'],
+            'street_address' => $data['street_address'],
+            'division_id' => $data['division_id'],
+            'district_id' => $data['district_id'],
+            'ip_address' => request()->ip(),
             'password' => Hash::make($data['password']),
         ]);
     }
