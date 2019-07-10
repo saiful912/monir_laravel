@@ -20,7 +20,7 @@
 <body>
 {{--navbar--}}
 @include('frontend.partials.nav')
-
+@include('backend.partials.message')
 @yield('main')
 
 <footer class="footer-bottom">

@@ -12,6 +12,9 @@
 */
 //Home route
 Route::get('/','Frontend\Homecontroller@showHome')->name('index');
+
+//user registration notify route
+Route::get('/token/{token}','Frontend\VerificationController@verify')->name('user.verification');
 //search route
 Route::get('/search','Frontend\HomeController@search')->name('search');
 
