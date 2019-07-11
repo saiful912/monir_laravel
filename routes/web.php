@@ -15,6 +15,10 @@ Route::get('/','Frontend\Homecontroller@showHome')->name('index');
 
 //user registration notify route
 Route::get('/token/{token}','Frontend\VerificationController@verify')->name('user.verification');
+//user dashboard route
+Route::get('user/dashboard','Frontend\UsersController@dashboard')->name('user.dashboard');
+Route::get('user/profile','Frontend\UsersController@profile')->name('user.profile');
+Route::post('user/profile/update','Frontend\UsersController@profile_update')->name('user.profile.update');
 //search route
 Route::get('/search','Frontend\HomeController@search')->name('search');
 
