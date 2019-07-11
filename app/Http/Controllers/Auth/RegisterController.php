@@ -99,11 +99,11 @@ class RegisterController extends Controller
             'remember_token' => str_random(50),
             'status' => 0,
         ]);
-
-        $user->notify(new VerifyRegistration($user));
+//notification
+//        $user->notify(new VerifyRegistration($user));
 
         session()->flash('success', 'A confirmation email has sent to yoy..Please check and verify');
-        return redirect();
+        return back();
 
     }
 }
