@@ -40,7 +40,8 @@
                         <button class="btn btn-danger">
                             <span class="mt-1">Cart</span>
                             <span class="badge badge-warning">
-                                {{(new App\Models\Cart)->totalItems()}}
+                                {{--something is wrong --}}
+                                {{--{{(new App\Models\Cart)->totalItems()}}--}}
                             </span>
                         </button>
                     </a>

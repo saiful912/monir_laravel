@@ -3,6 +3,7 @@
 namespace App\Http\Controllers\Frontend;
 
 use App\Models\Cart;
+use foo\bar;
 use Illuminate\Http\Request;
 use App\Http\Controllers\Controller;
 use Illuminate\Support\Facades\Auth;
@@ -16,7 +17,7 @@ class CartsController extends Controller
      */
     public function index()
     {
-
+        return view('frontend.cart');
     }
 
     /**
@@ -78,7 +79,28 @@ class CartsController extends Controller
      */
     public function update(Request $request, $id)
     {
-        //
+        $cart=Cart::find($id);
+        if (!is_null($cart)){
+            $cart->product_quantity=$request->product_quantity;
+            $cart->save();
+        }else{
+            return redirect()->route('carts');
+        }
+
+        session()->flash('success','Cart item has updated successfully');
+        return back();
+    }
+
+    public function destroy($id)
+    {
+        $cart=Cart::find($id);
+        if (!is_null($cart)){
+            $cart->delete();
+        }else{
+            return redirect()->route('carts');
+        }
+        session()->flash('success','Cart item has deleted');
+        return back();
     }
 
 }

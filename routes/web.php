@@ -28,6 +28,8 @@ Route::get('/product/{slug}','Frontend\ProductsController@show')->name('products
 //carts route
 Route::get('/carts','Frontend\CartsController@index')->name('carts');
 Route::post('/carts/store','Frontend\CartsController@store')->name('carts.store');
+Route::post('/carts/update/{id}','Frontend\CartsController@update')->name('carts.update');
+Route::post('/carts/delete/{id}','Frontend\CartsController@destroy')->name('carts.delete');
 
 //category route
 Route::get('/products/categories','Frontend\CategoriesController@index')->name('categories.index');

@@ -40,11 +40,11 @@ class Cart extends Model
         }else{
             $carts=Cart::orWhere('ip_address',request()->ip())->get();
         }
-        $total_item = 0;
-        foreach ($carts as $cart) {
-            $total_item += $cart->product_quantity;
-        }
-        return $total_item;
+//        $total_item = 0;
+//        foreach ($carts as $cart) {
+//            $total_item += $cart->product_quantity;
+//        }
+        return $carts;
     }
 
 }
