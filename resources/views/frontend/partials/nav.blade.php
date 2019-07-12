@@ -35,6 +35,16 @@
 
             <ul class="navbar-nav ml-auto">
                 <!-- Authentication Links -->
+                <li>
+                    <a class="nav-link" href="{{ route('carts') }}">
+                        <button class="btn btn-danger">
+                            <span class="mt-1">Cart</span>
+                            <span class="badge badge-warning">
+                                {{(new App\Models\Cart)->totalItems()}}
+                            </span>
+                        </button>
+                    </a>
+                </li>
                 @guest
                     <li class="nav-item">
                         <a class="nav-link" href="{{ route('login') }}">{{ __('Login') }}</a>

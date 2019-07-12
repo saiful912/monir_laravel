@@ -25,6 +25,9 @@ Route::get('/search','Frontend\HomeController@search')->name('search');
 //product show route
 Route::get('/products','Frontend\ProductsController@index')->name('products');
 Route::get('/product/{slug}','Frontend\ProductsController@show')->name('products.show');
+//carts route
+Route::get('/carts','Frontend\CartsController@index')->name('carts');
+Route::post('/carts/store','Frontend\CartsController@store')->name('carts.store');
 
 //category route
 Route::get('/products/categories','Frontend\CategoriesController@index')->name('categories.index');

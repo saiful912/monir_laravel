@@ -19,7 +19,7 @@
                         <a href="{{route('products.show',$product->slug)}}">{{$product->title}}</a>
                     </h4>
                     <p class="card-text">BDT-{{$product->price}} /-</p>
-                    <a href="#" class="btn btn-primary">Add to cart</a>
+                    @include('frontend.pages.product.partials.cart_button')
                 </div>
             </div>
         </div>
