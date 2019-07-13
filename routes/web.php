@@ -31,6 +31,10 @@ Route::post('/carts/store','Frontend\CartsController@store')->name('carts.store'
 Route::post('/carts/update/{id}','Frontend\CartsController@update')->name('carts.update');
 Route::post('/carts/delete/{id}','Frontend\CartsController@destroy')->name('carts.delete');
 
+//checkout routs
+Route::get('/checkout','Frontend\CheckoutsController@index')->name('checkouts');
+Route::post('/checkout/store','Frontend\CheckoutsController@store')->name('checkouts.store');
+
 //category route
 Route::get('/products/categories','Frontend\CategoriesController@index')->name('categories.index');
 Route::get('/products/category/{id}','Frontend\CategoriesController@show')->name('categories.show');

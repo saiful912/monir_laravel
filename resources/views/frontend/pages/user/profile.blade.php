@@ -120,7 +120,7 @@
 
                     <div class="col-md-6">
                         <textarea id="shipping_address"
-                                       class="form-control @error('phone_no') is-invalid @enderror " rows="4" name="street_address"
+                                       class="form-control @error('shipping_address') is-invalid @enderror " rows="4" name="shipping_address"
                                         autocomplete="shipping_address" autofocus>
                                      {{$user->shipping_address }}
                         </textarea>

@@ -60,9 +60,9 @@
             </tbody>
 
         </table>
-        <div class="text-right">
-            <a href="" class="btn btn-info btn-lg">Continue Shopping..</a>
-            <a href="" class="btn btn-primary btn-lg">Checkout</a>
+        <div class="text-right mb-3">
+            <a href="{{route('products')}}" class="btn btn-info btn-lg">Continue Shopping..</a>
+            <a href="{{route('checkouts')}}" class="btn btn-primary btn-lg">Checkout</a>
         </div>
 
     </div>
