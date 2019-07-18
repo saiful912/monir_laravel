@@ -41,7 +41,7 @@
                             <span class="mt-1">Cart</span>
                             <span class="badge badge-warning">
                                 {{--something is wrong --}}
-                                {{--{{(new App\Models\Cart)->totalItems()}}--}}
+                                {{(new App\Models\Cart)->totalItems()}}
                             </span>
                         </button>
                     </a>
@@ -59,7 +59,7 @@
                     <li class="nav-item dropdown">
                         <a id="navbarDropdown" class="nav-link dropdown-toggle" href="#" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false" v-pre>
                             {{--gravatarHelper ImageHelper--}}
-                            <img src="{{App\Helpers\ImageHelper::getUserImage(Auth::user()->id)}}" class="img rounded-circle" width="50px">
+                            {{--<img src="{{App\Helpers\ImageHelper::getUserImage(Auth::user()->id)}}" class="img rounded-circle" width="50px">--}}
                             {{ Auth::user()->first_name }} {{ Auth::user()->last_name }}<span class="caret"></span>
                         </a>
 

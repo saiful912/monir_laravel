@@ -9,7 +9,7 @@
                   @php
                     $total_price= 0;
                     @endphp
-                  @foreach((new App\Models\Cart)->totalItems() as $cart)
+                  @foreach((new App\Models\Cart)->totalCarts() as $cart)
 
                     <p>
                         {{$cart->product->title}} -
@@ -31,9 +31,9 @@
           </div>
 
           <div class="col-md-9">
-              <div class="card card-body mt-5">
+              <div class="card card-body mt-5 mb-5">
                   <h5 class="text-danger font-weight-bold text-center">Order Products</h5>
-                  <form method="POST" action="{{ route('user.profile.update') }}">
+                  <form method="POST" action="{{ route('checkouts.store') }}">
                       @csrf
 
                       <div class="form-group row mt-2">
@@ -85,12 +85,30 @@
                       </div>
 
                       <div class="form-group row">
+                          <label for="message"
+                                 class="col-md-4 col-form-label text-md-right">{{ __('Additional Message(optional)') }}</label>
+
+                          <div class="col-md-6">
+                        <textarea id="message"
+                                  class="form-control @error('message') is-invalid @enderror " rows="4" name="message"
+                                  autocomplete="message" autofocus>
+                        {{Auth::check() ? Auth::user()->message : ''}}
+                        </textarea>
+
+                              @error('message')
+                              <span class="invalid-feedback" role="alert">
+                                        <strong>{{ $message }}</strong>
+                                    </span>
+                              @enderror
+                          </div>
+                      </div>
+                      <div class="form-group row">
                           <label for="shipping_address"
                                  class="col-md-4 col-form-label text-md-right">{{ __('Shipping Address (optional)') }}</label>
 
                           <div class="col-md-6">
                         <textarea id="shipping_address"
-                                  class="form-control @error('phone_no') is-invalid @enderror " rows="4" name="street_address"
+                                  class="form-control @error('phone_no') is-invalid @enderror " rows="4" name="shipping_address"
                                   autocomplete="shipping_address" autofocus>
                         {{Auth::check() ? Auth::user()->shipping_address : ''}}
                         </textarea>
@@ -106,12 +124,41 @@
                       <div class="form-group row">
                           <label for="payment_method" class="col-md-4 col-form-label text-md-right">Select a payment method</label>
                           <div class="col-md-6">
-                              <select name="payment_method_id" class="form-control" required>
+                              <select name="payment_method_id" class="form-control" required  id="payments">
                                   <option value="">Select a payment method please</option>
                                   @foreach($payments as $payment)
-                                        <option value="{{$payment->id}}">{{$payment->name}}</option>
+                                        <option value="{{$payment->short_name}}">{{$payment->name}}</option>
                                       @endforeach
                               </select>
+                              @foreach($payments as $payment)
+
+                                  @if($payment->short_name == "cash_in")
+                                      <div  id="payment_{{$payment->short_name}}" class="hidden alert alert-success mt-2">
+                                          <h3>
+                                              For cash in there nothing to necessary. Just click Finish.
+                                              <br>
+                                              <small>
+                                                  We will get your product in two  or three business days.
+                                              </small>
+                                          </h3>
+                                      </div>
+                                      @else
+                                      <div id="payment_{{$payment->short_name}}" class="hidden alert alert-success mt-2">
+                                          <h3>{{$payment->name}} Payment</h3>
+                                          <p>
+                                              <strong>{{$payment->name}} No : {{$payment->no}}</strong>
+                                              <br>
+                                              <strong>Account Type : {{$payment->type}}</strong>
+                                          </p>
+                                            <div class="alert alert-success">
+                                                Please send the above money to this Bkash no and write your transaction
+                                            </div>
+
+                                      </div>
+                                      @endif
+
+                                  @endforeach
+                              <input type="text" name="transaction_id" id="transaction_id" class="form-control hidden" placeholder="Enter Transaction ID">
                           </div>
                       </div>
 
@@ -128,4 +175,27 @@
           </div>
       </div>
     </div>
-    @stop
+
+@stop
+    @section('scripts')
+        <script type="text/javascript">
+            $("#payments").change(function () {
+                $payment_method =$("#payments").val();
+               if ($payment_method=="cash_in"){
+                   $("#payment_cash_in").removeClass('hidden');
+                   $("#payment_bkash").addClass('hidden');
+                   $("#payment_rocket").addClass('hidden');
+               }else if ($payment_method=="bkash"){
+                   $("#payment_bkash").removeClass('hidden');
+                   $("#payment_cash_in").addClass('hidden');
+                   $("#payment_rocket").addClass('hidden');
+                   $("#transaction_id").removeClass('hidden');
+               }else if ($payment_method=="rocket") {
+                   $("#payment_rocket").removeClass('hidden');
+                   $("#payment_cash_in").addClass('hidden');
+                   $("#payment_bkash").addClass('hidden');
+                   $("#transaction_id").removeClass('hidden');
+               }
+            })
+        </script>
+        @stop
