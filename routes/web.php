@@ -67,7 +67,10 @@ Route::group(['prefix' =>'admin'],function(){
     //order routes
     Route::get('/orders','Backend\AdminOrdersController@index')->name('admin.orders');
     Route::get('/orders/view/{id}','Backend\AdminOrdersController@show')->name('admin.order.show');
-    Route::get('/orders/delete/{id}','Backend\AdminOrdersController@delete')->name('admin.order.delete');
+    Route::post('/orders/delete/{id}','Backend\AdminOrdersController@delete')->name('admin.order.delete');
+
+    Route::post('/orders/completed/{id}','Backend\AdminOrdersController@completed')->name('admin.order.completed');
+    Route::post('/orders/paid/{id}','Backend\AdminOrdersController@paid')->name('admin.order.paid');
 
     //Category route
     Route::get('/categories/create','Backend\AdminCategoriesController@category_create')->name('admin.categories.create');

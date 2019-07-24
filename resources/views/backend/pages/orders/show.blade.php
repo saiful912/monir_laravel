@@ -83,6 +83,23 @@
 
                         </table>
                         @endif
+                    <hr>
+                    <form class="d-inline-block" action="{{route('admin.order.paid',$order->id)}}" method="post">
+                        @csrf
+                        @if($order->is_paid)
+                        <input type="submit" value="Cancel Order" class="btn btn-danger">
+                            @else
+                            <input type="submit" value="Paid Order" class="btn btn-success">
+                            @endif
+                    </form>
+                    <form class="d-inline-block" action="{{route('admin.order.completed',$order->id)}}" method="post">
+                        @csrf
+                        @if($order->is_completed)
+                        <input type="submit" value="Cancel Order" class="btn btn-warning">
+                            @else
+                            <input type="submit" value="Complete Order" class="btn btn-success">
+                            @endif
+                    </form>
                 </div>
             </div>
         </div>
