@@ -162,6 +162,8 @@ return [
         Illuminate\Validation\ValidationServiceProvider::class,
         Illuminate\View\ViewServiceProvider::class,
 
+        Illuminate\Auth\AuthenticationException::class,
+
         /*
          * Package Service Providers...
          */
@@ -175,6 +177,7 @@ return [
         App\Providers\EventServiceProvider::class,
         App\Providers\RouteServiceProvider::class,
 
+        \App\Models\Admin::class,
 //        Third party Providers
         Intervention\Image\ImageServiceProvider::class,
 

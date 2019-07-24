@@ -21,6 +21,11 @@ use Intervention\Image\Facades\Image;
  */
 class AdminCategoriesController extends Controller
 {
+//    something problem
+//    public function __construct()
+//    {
+//        $this->middleware('auth:admin');
+//    }
 
     public function category_create()
     {

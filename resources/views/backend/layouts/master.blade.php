@@ -12,6 +12,7 @@
     <!-- End plugin css for this page -->
     <!-- inject:css -->
     <link rel="stylesheet" href="{{mix('css/app.css')}}">
+    <link rel="stylesheet" type="text/css" href="https://cdn.datatables.net/1.10.19/css/jquery.dataTables.css">
     <link rel="stylesheet" href="{{asset('css/admin_style.css')}}">
     <!-- endinject -->
     <link rel="shortcut icon" href="{{asset('images/favicon.png')}}" />
@@ -36,19 +37,14 @@
 
 <!-- plugins:js -->
 <script src="{{mix('js/app.js')}}"></script>
-<!-- endinject -->
-<!-- Plugin js for this page-->
-<script src="node_modules/chart.js/dist/Chart.min.js"></script>
-<!-- End plugin js for this page-->
-<!-- inject:js -->
-<script src="js/off-canvas.js"></script>
-<script src="js/misc.js"></script>
-<!-- endinject -->
-<!-- Custom js for this page-->
-<script src="js/dashboard.js"></script>
-<script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyB5NXz9eVnyJOA81wimI8WYE08kW_JMe8g&callback=initMap" async defer></script>
-<script src="js/maps.js"></script>
-<!-- End custom js for this page-->
+<script type="text/javascript" charset="utf8" src="https://cdn.datatables.net/1.10.19/js/jquery.dataTables.js"></script>
+
+{{--<script src="{{asset('js/datatables.min.js')}}"></script>--}}
+<script>
+    $(document).ready( function () {
+        $('#table_data').DataTable();
+    } );
+</script>
 </body>
 
 </html>

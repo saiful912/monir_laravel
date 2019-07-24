@@ -21,6 +21,14 @@
             </div>
         </li>
         <li class="nav-item">
+            <a class="nav-link" data-toggle="collapse" href="#orders-pages" aria-expanded="false" aria-controls="general-pages"> <img class="menu-icon" src="{{asset('images/menu_icons/08.png')}}" alt="menu icon"> <span class="menu-title">Orders</span><i class="menu-arrow"></i></a>
+            <div class="collapse" id="orders-pages">
+                <ul class="nav flex-column sub-menu">
+                    <li class="nav-item"> <a class="nav-link" href="{{route('admin.orders')}}">Manage Orders</a></li>
+                </ul>
+            </div>
+        </li>
+        <li class="nav-item">
             <a class="nav-link" data-toggle="collapse" href="#categories-pages" aria-expanded="false" aria-controls="categories-pages"> <img class="menu-icon" src="{{asset('images/menu_icons/08.png')}}" alt="menu icon"> <span class="menu-title">Categories</span><i class="menu-arrow"></i></a>
             <div class="collapse" id="categories-pages">
                 <ul class="nav flex-column sub-menu">
@@ -58,6 +66,15 @@
                     <li class="nav-item"> <a class="nav-link" href="{{route('admin.districts.create')}}">Add District</a></li>
                 </ul>
             </div>
+        </li>
+
+        <li class="nav-item">
+            <a class="nav-link" href="#districts-pages">
+            <form class="form-inline" action="{{route('admin.logout')}}" method="post">
+                @csrf
+                <input type="submit" value="Logout Now" class="btn btn-danger">
+            </form>
+            </a>
         </li>
     </ul>
 </nav>

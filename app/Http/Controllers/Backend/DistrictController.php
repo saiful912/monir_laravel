@@ -9,6 +9,11 @@ use App\Http\Controllers\Controller;
 
 class DistrictController extends Controller
 {
+//    something problem
+//    public function __construct()
+//    {
+//        $this->middleware('auth:admin');
+//    }
     public function manage_district()
     {
         $districts = District::orderBy('name', 'asc')->get();

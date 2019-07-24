@@ -21,6 +21,11 @@ use Intervention\Image\Facades\Image;
  */
 class AdminBrandsController extends Controller
 {
+//    somthing problem
+//    public function __construct()
+//    {
+//        $this->middleware('auth:admin');
+//    }
 
     public function brand_create()
     {

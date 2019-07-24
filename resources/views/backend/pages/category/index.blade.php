@@ -7,7 +7,8 @@
                     Manage Categories
                 </div>
                 <div class="card-body">
-                    <table class="table table-bordered table-hover">
+                    <table class="table table-bordered table-hover" id="table_data">
+                        <thead>
                         <tr>
                             <th>#</th>
                             <th>Category Name</th>
@@ -15,7 +16,8 @@
                             <th>Parent Category</th>
                             <th>Action</th>
                         </tr>
-
+                        </thead>
+                        <tbody>
                         @foreach($categories as $category)
                             <tr>
                                 <td>#</td>
@@ -67,6 +69,7 @@
                                 </td>
                             </tr>
                         @endforeach
+                        </tbody>
                     </table>
                 </div>
             </div>

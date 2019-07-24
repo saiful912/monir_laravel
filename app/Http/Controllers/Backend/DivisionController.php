@@ -9,6 +9,11 @@ use App\Http\Controllers\Controller;
 
 class DivisionController extends Controller
 {
+    //something problem
+//    public function __construct()
+//    {
+//        $this->middleware('auth:admin');
+//    }
     public function manage_division()
     {
         $divisions = Division::orderBy('priority', 'asc')->get();

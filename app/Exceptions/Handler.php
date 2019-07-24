@@ -32,6 +32,7 @@ class Handler extends ExceptionHandler
      *
      * @param  \Exception $exception
      * @return void
+     * @throws Exception
      */
     public function report(Exception $exception)
     {
@@ -52,17 +53,17 @@ class Handler extends ExceptionHandler
             case 'Illuminate\Auth\AuthenticationException':
                 $guard = array_get($exception->guards(), 0);
 
-                switch ($guard){
+                switch ($guard) {
                     case 'admin':
-                        $login="admin.login";
+                        $login = "admin.login";
                         break;
 
                     case 'web':
-                        $login="login";
+                        $login = "login";
                         break;
 
                     default:
-                        $login="login";
+                        $login = "login";
                         break;
                 }
                 return redirect()->route($login);

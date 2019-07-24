@@ -11,6 +11,7 @@ class Order extends Model
         [
             'user_id',
             'ip_address',
+            'payment_id',
             'name',
             'phone_no',
             'shipping_address',
@@ -18,7 +19,8 @@ class Order extends Model
             'message',
             'is_paid',
             'is_completed',
-            'is_seen_by_admin'
+            'is_seen_by_admin',
+            'transaction_id'
 
         ];
 
@@ -28,6 +30,10 @@ class Order extends Model
     }
     public function carts()
     {
-        return $this->belongsTo(Cart::class);
+        return $this->hasMany(Cart::class);
+    }
+    public function payment()
+    {
+        return $this->belongsTo(Payment::class);
     }
 }

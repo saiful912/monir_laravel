@@ -2,6 +2,7 @@
 @section('main')
     <div class="container">
         <h4 class="mt-3 text-center font-weight-bold text-dark">My Added Product</h4>
+        @if((new App\Models\Cart)->totalItems() > 0)
         <table class="table table-bordered table-striped table-hover table-info">
             <thead>
             <tr>
@@ -64,6 +65,6 @@
             <a href="{{route('products')}}" class="btn btn-info btn-lg">Continue Shopping..</a>
             <a href="{{route('checkouts')}}" class="btn btn-primary btn-lg">Checkout</a>
         </div>
-
+@endif
     </div>
    @stop

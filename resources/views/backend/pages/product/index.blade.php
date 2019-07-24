@@ -7,18 +7,22 @@
                     Manage Products
                 </div>
                <div class="card-body">
-                   <table class="table table-bordered table-hover">
+                   <table class="table table-bordered table-hover" id="table_data">
+                       <thead>
                        <tr>
                            <th>#</th>
+                           <th>Product Code</th>
                            <th>Product Title</th>
                            <th>Price</th>
                            <th>Quantity</th>
                            <th>Action</th>
                        </tr>
-
+                       </thead>
+                       <tbody>
                        @foreach($products as $product)
                            <tr>
                                <td>#</td>
+                               <td>#PLE{{$product->id}}</td>
                                <td>{{$product->title}}</td>
                                <td>{{$product->price}}</td>
                                <td>{{$product->quantity}}</td>
@@ -38,7 +42,7 @@
                                                </div>
                                                <div class="modal-body">
                                                    <form action="{!! route('admin.product.delete',$product->id) !!}" method="post">
-                                                        {{csrf_field()}}
+                                                       {{csrf_field()}}
                                                        <button type="submit" class="btn btn-danger">Permanent Delete</button>
                                                    </form>
                                                </div>
@@ -51,7 +55,8 @@
                                    </div>
                                </td>
                            </tr>
-                           @endforeach
+                       @endforeach
+                       </tbody>
                    </table>
                </div>
             </div>

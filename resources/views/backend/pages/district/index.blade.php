@@ -7,14 +7,16 @@
                     Manage District
                 </div>
                 <div class="card-body">
-                    <table class="table table-bordered table-hover">
-                        <tr>
-                            <th>#</th>
-                            <th>District Name</th>
-                            <th>Division Name</th>
-                            <th>Action</th>
-                        </tr>
-
+                    <table class="table table-bordered table-hover" id="table_data">
+                       <thead>
+                       <tr>
+                           <th>#</th>
+                           <th>District Name</th>
+                           <th>Division Name</th>
+                           <th>Action</th>
+                       </tr>
+                       </thead>
+                        <tbody>
                         @foreach($districts as $district)
                             <tr>
                                 <td>#</td>
@@ -58,6 +60,7 @@
                                 </td>
                             </tr>
                         @endforeach
+                        </tbody>
                     </table>
                 </div>
             </div>

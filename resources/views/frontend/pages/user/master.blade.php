@@ -6,7 +6,7 @@
                 <div class="list-group">
                     <a href="" class="list-group-item">
                         {{--gravatarHelper ImageHelper--}}
-                        <img src="{{App\Helpers\ImageHelper::getUserImage(Auth::user()->id)}}" class="img rounded-circle" width="100px">
+                        {{--<img src="{{App\Helpers\ImageHelper::getUserImage(Auth::user()->id)}}" class="img rounded-circle" width="100px">--}}
                         <h6 class="mt-2 ml-2">{{$user->first_name.' '.$user->last_name}}</h6>
                     </a>
                     <a href="{{route('user.dashboard')}}" class="list-group-item {{Route::is('user.dashboard') ? 'active' : ''}}">Dashboard</a>

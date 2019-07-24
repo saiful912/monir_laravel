@@ -46,6 +46,16 @@ Route::get('/products/category/{id}','Frontend\CategoriesController@show')->name
 Route::group(['prefix' =>'admin'],function(){
     //backend route
     Route::get('/','Backend\AdminControllers@index')->name('admin.index');
+    //admin login routes
+    Route::get('/login','Auth\Admin\LoginController@showLoginForm')->name('admin.login');
+    Route::post('/login/submit','Auth\Admin\LoginController@login')->name('admin.login.submit');
+    Route::post('/logout','Auth\Admin\LoginController@logout')->name('admin.logout');
+    //password email send
+    Route::get('/password/reset','Auth\Admin\ForgotPasswordController@showLinkPassword')->name('admin.password.request');
+    Route::post('/password/resetPost','Auth\Admin\ForgotPasswordController@sendResetLinkEmail')->name('admin.password.email');
+    //password reset
+    Route::get('/password/reset/{token}','Auth\Admin\ResetPasswordController@showResetForm ')->name('admin.password.reset');
+    Route::post('/password/reset','Auth\Admin\ResetPasswordController@reset')->name('admin.password.update');
 
     //products all route
     Route::get('/product/create','Backend\AdminProductsController@product_create')->name('admin.product.create');
@@ -54,6 +64,10 @@ Route::group(['prefix' =>'admin'],function(){
     Route::post('/product/create','Backend\AdminProductsController@product_store')->name('admin.product.store');
     Route::post('/product/update/{id}','Backend\AdminProductsController@product_update')->name('admin.product.update');
     Route::post('/product/delete/{id}','Backend\AdminProductsController@product_delete')->name('admin.product.delete');
+    //order routes
+    Route::get('/orders','Backend\AdminOrdersController@index')->name('admin.orders');
+    Route::get('/orders/view/{id}','Backend\AdminOrdersController@show')->name('admin.order.show');
+    Route::get('/orders/delete/{id}','Backend\AdminOrdersController@delete')->name('admin.order.delete');
 
     //Category route
     Route::get('/categories/create','Backend\AdminCategoriesController@category_create')->name('admin.categories.create');
