@@ -47,12 +47,12 @@ return [
             'hash' => false,
         ],
         //For Admin
-        'admin' => [
+        'admins' => [
             'driver' => 'session',
             'provider' => 'admins',
         ],
 
-        'admin-api' => [
+        'admins-api' => [
             'driver' => 'token',
             'provider' => 'admins',
             'hash' => false,

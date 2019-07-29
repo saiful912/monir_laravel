@@ -3,7 +3,7 @@
 namespace App\Http\Controllers\Auth\Admin;
 
 use App\Http\Controllers\Controller;
-use App\Admin;
+use App\Models\Admin;
 use Illuminate\Foundation\Auth\AuthenticatesUsers;
 use App\Notifications\VerifyRegistration;
 use Illuminate\Http\Request;
@@ -36,10 +36,10 @@ class LoginController extends Controller
      *
      * @return void
      */
-    public function __construct()
-    {
-        $this->middleware('guest')->except('logout');
-    }
+//    public function __construct()
+//    {
+//        $this->middleware('guest')->except('logout');
+//    }
 
     public function showLoginForm()
     {
@@ -53,7 +53,7 @@ class LoginController extends Controller
             'password'=>'required',
         ]);
             //login this user
-            if (Auth::guard('admin')->attempt(['email'=>$request->email,'password'=>$request->password],$request->remember_token)){
+            if (Auth::guard('admins')->attempt(['email'=>$request->email,'password'=>$request->password],$request->remember_token)){
                 //log him now
                 return redirect()->intended(route('admin.index'));
             }else{

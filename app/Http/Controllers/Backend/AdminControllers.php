@@ -18,4 +18,8 @@ class AdminControllers extends Controller
         return view('backend.pages.index');
     }
 
+    public function  loginProcess(Request $request){
+
+    }
+
 }
