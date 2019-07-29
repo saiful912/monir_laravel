@@ -67,6 +67,14 @@
                 </ul>
             </div>
         </li>
+        <li class="nav-item">
+            <a class="nav-link" data-toggle="collapse" href="#sliders-pages" aria-expanded="false" aria-controls="brands-pages"> <img class="menu-icon" src="{{asset('images/menu_icons/05.png')}}" alt="menu icon"> <span class="menu-title">Sliders</span><i class="menu-arrow"></i></a>
+            <div class="collapse" id="sliders-pages">
+                <ul class="nav flex-column sub-menu">
+                    <li class="nav-item"> <a class="nav-link" href="{{route('admin.sliders')}}">Manage Slider</a></li>
+                </ul>
+            </div>
+        </li>
 
         <li class="nav-item">
             <a class="nav-link" href="#districts-pages">

@@ -99,6 +99,11 @@ Route::group(['prefix' => 'admin'], function () {
     Route::post('/division/create', 'Backend\DivisionController@division_store')->name('admin.division.store');
     Route::post('/division/update/{id}', 'Backend\DivisionController@division_update')->name('admin.division.update');
     Route::post('/division/delete/{id}', 'Backend\DivisionController@division_delete')->name('admin.division.delete');
+    //Sliders route
+    Route::get('/sliders', 'Backend\SlidersController@index')->name('admin.sliders');
+    Route::post('/sliders/store', 'Backend\SlidersController@store')->name('admin.slider.store');
+    Route::post('/sliders/edit/{id}', 'Backend\SlidersController@update')->name('admin.slider.update');
+    Route::post('/sliders/delete/{id}', 'Backend\SlidersController@delete')->name('admin.slider.delete');
 
     //District route
     Route::get('/districts/create', 'Backend\DistrictController@district_create')->name('admin.districts.create');
