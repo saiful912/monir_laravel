@@ -18,9 +18,9 @@ body{
     display: flex;
 }
 
-.margin-top{
-    margin-top: 20px;
-}
+/*.margin-top{*/
+    /*margin-top: 20px;*/
+/*}*/
 footer.footer-bottom {
     padding: 20px;
     margin-top: 40px;
@@ -32,4 +32,22 @@ footer.footer-bottom {
 }
 .hidden{
     display: none;
+}
+.carousel-indicators li{
+    position: relative;
+    -webkit-box-flex: 0;
+    -ms-flex: 0 1 auto;
+    flex: 0 1 auto;
+    width: 20px;
+    height: 20px;
+    margin-right: 3px;
+    margin-left: 3px;
+    text-indent: -999px;
+    border-radius: 50%;
+    background-color: hsl(194,98%,55%);
+}
+.carousel-caption h5{
+    color:#fff;
+    font-weight: bold;
+    padding: 10px;
 }

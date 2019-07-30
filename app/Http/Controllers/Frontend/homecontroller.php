@@ -4,14 +4,16 @@ namespace App\Http\Controllers\Frontend;
 
 use App\Http\Controllers\Controller;
 use App\Models\Product;
+use App\Models\Slider;
 use Illuminate\Http\Request;
 
 class homecontroller extends Controller
 {
     public function showHome()
     {
+        $sliders=Slider::orderBy('priority','asc')->get();
         $products = Product::orderBy('id', 'desc')->paginate(3);
-        return view('frontend.index', compact('products'));
+        return view('frontend.index', compact('products','sliders'));
     }
 
     public function showAbout()
