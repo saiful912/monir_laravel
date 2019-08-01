@@ -13,6 +13,7 @@ use Illuminate\Http\Request;
 |
 */
 
-Route::middleware('auth:api')->get('/user', function (Request $request) {
-    return $request->user();
-});
+Route::get('/carts', 'Api\CartsController@index')->name('carts');
+Route::post('/carts/store', 'Api\CartsController@store')->name('carts.store');
+Route::post('/carts/update/{id}', 'Api\CartsController@update')->name('carts.update');
+Route::post('/carts/delete/{id}', 'Api\CartsController@destroy')->name('carts.delete');

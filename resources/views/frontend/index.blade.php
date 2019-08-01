@@ -17,14 +17,16 @@
                     <div class="carousel-inner">
                         @foreach($sliders as $slider)
                             <div class="carousel-item {{$loop->index == 0 ? 'active' : ''}}">
-                                <img class="d-block w-100" src="{{asset('images/sliders/'.$slider->image)}}" alt="{{$slider->title}}">
+                                <img class="d-block w-100" src="{{asset('images/sliders/'.$slider->image)}}"
+                                     alt="{{$slider->title}}">
                                 <div class="carousel-caption d-none d-md-block">
                                     <h5>{{$slider->title}}</h5>
                                     @if($slider->button_text)
                                         <p>
-                                            <a href="{{$slider->button_link}}" target="_blank" class="btn btn-danger">{{$slider->button_text}}</a>
+                                            <a href="{{$slider->button_link}}" target="_blank"
+                                               class="btn btn-danger">{{$slider->button_text}}</a>
                                         </p>
-                                        @endif
+                                    @endif
                                 </div>
                             </div>
                         @endforeach
@@ -51,13 +53,41 @@
         <div class="col-md-8">
             <div class="widget">
                 <h3 class="font-weight-bold mb-3 text-center">Our Products</h3>
-                    @include('frontend.pages.product.partials.master_products')
-            <div class="widget">
+                @include('frontend.pages.product.partials.master_products')
+                <div class="widget">
 
+                </div>
             </div>
         </div>
     </div>
-</div>
 
-    @stop
+@stop
 <script src="{{mix('js/app.js')}}"></script>
+<script src="{{asset('js/jquery-3.4.1.min.js')}}"></script>
+
+{{--jquery ajax something problem--}}
+<script>
+    $.ajaxSetup({
+        headers: {
+            'X-CSRF-TOKEN': $('meta[name="csrf-token"]').attr('content')
+        }
+    });
+
+    function addToCart(product_id) {
+        $.post('https://monir_laravel.test/api/carts/store',
+            {
+                product_id: product_id
+            })
+            .done(function (data) {
+                data = JSON.parse(data);
+                if (data.status === 'success') {
+                    //toast css js include baki ace
+                    alertify.set('notifier',position('top-center'));
+                    alertify.success('Item added to cart successfully || total Items: '+data.totalItems+'</br> to checkout ' +
+                        '<a href="{{route('carts')}}">Go to checkout page</a>');
+                    $('#totalItems').html(data.totalItems);
+                }
+            });
+    }
+</script>
+

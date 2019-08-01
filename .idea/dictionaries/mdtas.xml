@@ -1,7 +1,9 @@
 <component name="ProjectDictionaryState">
   <dictionary name="mdtas">
     <words>
+      <w>alertify</w>
       <w>authenticatable</w>
+      <w>csrf</w>
       <w>datatables</w>
       <w>ecommerce</w>
       <w>fillable</w>
