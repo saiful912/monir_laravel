@@ -15,6 +15,8 @@ class Order extends Model
             'name',
             'phone_no',
             'shipping_address',
+            'shipping_charge',
+            'custom_discount',
             'email',
             'message',
             'is_paid',

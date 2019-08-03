@@ -21,6 +21,8 @@ class CreateOrdersTable extends Migration
             $table->string('name');
             $table->string('phone_no');
             $table->text('shipping_address');
+            $table->string('shipping_charge')->default(60);
+            $table->string('custom_discount')->default(0);
             $table->string('email')->nullable();
             $table->text('message')->nullable();
             $table->boolean('is_paid')->default(0);

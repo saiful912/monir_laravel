@@ -180,6 +180,7 @@ return [
         \App\Models\Admin::class,
 //        Third party Providers
         Intervention\Image\ImageServiceProvider::class,
+        Barryvdh\DomPDF\ServiceProvider::class,
 
     ],
 
@@ -234,6 +235,7 @@ return [
 
 //        third party aliases
         'Image'=>Intervention\Image\Facades\Image::class,
+        'PDF' => Barryvdh\DomPDF\Facade::class,
 
     ],
 

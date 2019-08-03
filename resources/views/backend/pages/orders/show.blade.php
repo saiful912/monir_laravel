@@ -84,6 +84,18 @@
                         </table>
                         @endif
                     <hr>
+                    <form class="d-inline-block" action="{{route('admin.order.charge',$order->id)}}" method="post">
+                        @csrf
+                        <label for="">Shipping Charge</label>
+                        <input type="number" name="shipping_charge" id="shipping_charge" value="{{$order->shipping_charge}}">
+                        <br>
+                        <label for="">Custom Discount</label>
+                        <input type="number" name="custom_discount" id="custom_discount" value="{{$order->custom_discount}}">
+                        <br>
+                        <input type="submit" value="Update" class="btn btn-info">
+                        <a href="{{route('admin.order.invoice',$order->id)}}" class="btn btn-success ml-2">Generate Invoice</a>
+                    </form>
+                    <hr>
                     <form class="d-inline-block" action="{{route('admin.order.paid',$order->id)}}" method="post">
                         @csrf
                         @if($order->is_paid)

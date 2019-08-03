@@ -71,6 +71,8 @@ Route::group(['prefix' => 'admin'], function () {
 
     Route::post('/orders/completed/{id}', 'Backend\AdminOrdersController@completed')->name('admin.order.completed');
     Route::post('/orders/paid/{id}', 'Backend\AdminOrdersController@paid')->name('admin.order.paid');
+    Route::post('/orders/charge_update/{id}', 'Backend\AdminOrdersController@chargeUpdate')->name('admin.order.charge');
+    Route::get('/orders/invoice/{id}', 'Backend\AdminOrdersController@generateInvoice')->name('admin.order.invoice');
 
     //Category route
     Route::get('/categories/create',
